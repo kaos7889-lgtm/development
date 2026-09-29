@@ -26,14 +26,21 @@
 ## 3. 내 PC의 Claude Code (터미널)
 
 ```bash
-~/claude-learning/setup-mcp.sh    # Context7, Playwright MCP 등록
+~/claude-learning/setup-plugins.sh
 ```
 
-Claude Code 안에서 공식 플러그인을 설치하는 방법:
+아래 7개를 사용자 범위(user)로 설치합니다. 이 스크립트는 2026-09-29에 Claude Code 2.1.284에서 실행해서 7개 모두 설치되는 것을 확인했습니다.
 
-```
-/plugin install frontend-design@claude-plugins-official
-/plugin install skill-creator@claude-plugins-official
-```
+| 플러그인 | 마켓플레이스 | 쓰임 |
+|---|---|---|
+| frontend-design | claude-plugins-official | 완성도 있는 UI 제작 |
+| skill-creator | claude-plugins-official | 스킬 만들기·테스트 |
+| context7 | claude-plugins-official | 라이브러리 최신 문서 (MCP 포함) |
+| playwright | claude-plugins-official | 브라우저로 화면 확인 (MCP 포함) |
+| figma | claude-plugins-official | 피그마 시안 → 코드. 처음 쓸 때 로그인 |
+| vercel | claude-plugins-official | 배포. 처음 쓸 때 로그인 |
+| design | knowledge-work-plugins | 디자인 비평·UX 문구·접근성 |
 
-설치한 뒤에는 `/plugin`과 `/mcp`로 설치된 목록을 확인합니다.
+- 설치 목록 확인: `claude plugin list`, 또는 Claude Code 안에서 `/plugin`
+- 하나만 끄기: `claude plugin disable <이름>@<마켓플레이스>`
+- Context7와 Playwright는 플러그인에 MCP 서버가 들어 있어서 `claude mcp add`를 따로 할 필요가 없습니다.
