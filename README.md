@@ -22,6 +22,7 @@ Claude와 Claude Code를 더 잘 활용하기 위해 **학습하고, 기록하�
 ```bash
 git clone https://github.com/kaos7889-lgtm/development.git ~/claude-learning
 ~/claude-learning/install.sh      # ~/.claude/skills 에 심볼릭 링크로 설치
+~/claude-learning/setup-mcp.sh    # Context7, Playwright MCP 등록 (선택)
 ```
 
 설치 후 어느 프로젝트 폴더에서든 Claude Code에서 `/web-effects`로 호출하거나, 자연어로 요청하면 자동으로 적용됩니다.
@@ -32,3 +33,5 @@ git clone https://github.com/kaos7889-lgtm/development.git ~/claude-learning
 | 스킬 | 설명 |
 |------|------|
 | `web-effects` | 유리 패널·그러데이션·3D·녹는 로고 효과를 스택에 맞게 골라 설치하고 검증 |
+
+추천 플러그인과 커넥터: [`notes/2026-09-29-recommended-tools.md`](notes/2026-09-29-recommended-tools.md)
