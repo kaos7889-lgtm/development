@@ -23,6 +23,7 @@ Claude와 Claude Code를 더 잘 활용하기 위해 **학습하고, 기록하�
 git clone https://github.com/kaos7889-lgtm/development.git ~/claude-learning
 ~/claude-learning/install.sh      # ~/.claude/skills 에 심볼릭 링크로 설치
 ~/claude-learning/setup-plugins.sh  # 추천 플러그인 7개 설치 (Context7, Playwright, Figma 등)
+~/claude-learning/setup-low-load.sh # 작업을 하나씩 처리하도록 동시 실행 제한 (Mac 과부하 방지)
 ```
 
 설치 후 어느 프로젝트 폴더에서든 Claude Code에서 `/web-effects`로 호출하거나, 자연어로 요청하면 자동으로 적용됩니다.
