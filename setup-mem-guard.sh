@@ -31,7 +31,10 @@ if [ ! -f "$conf" ]; then
 WARN_GB=$(( total * 40 / 100 ))    # 넘으면 알림
 LIMIT_GB=$(( total * 55 / 100 ))   # 넘으면 원인 프로세스 종료
 KILL_DESKTOP=0                     # 1 이면 데스크톱 앱이 한도를 넘을 때 앱을 종료
+TOTAL_LIMIT_GB=32                  # Claude 전체 합계가 넘으면 가장 무거운 작업부터 종료
 CONF
+elif ! grep -q '^TOTAL_LIMIT_GB=' "$conf"; then
+  echo 'TOTAL_LIMIT_GB=32                  # Claude 전체 합계가 넘으면 가장 무거운 작업부터 종료' >> "$conf"
 fi
 
 cat > "$plist" <<PLIST
@@ -53,7 +56,7 @@ PLIST
 
 launchctl bootstrap "$domain" "$plist"
 echo "메모리 감시를 설치했습니다 (30초마다 실행)."
-echo "한도: $(grep -E '^(WARN|LIMIT)_GB' "$conf" | sed 's/ *#.*//' | tr '\n' ' ')→ 바꾸려면 $conf 수정"
+echo "한도: $(grep -E '^(WARN|LIMIT|TOTAL_LIMIT)_GB' "$conf" | sed 's/ *#.*//' | tr '\n' ' ')→ 바꾸려면 $conf 수정"
 echo "기록: ~/Library/Logs/claude-mem-guard.log"
 echo
 "$bin" check
